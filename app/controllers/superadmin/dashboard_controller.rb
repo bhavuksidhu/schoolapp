@@ -1,7 +1,8 @@
 class Superadmin::DashboardController < Superadmin::SuperAdminBaseController
+  before_action :get_admin, only: [:edit, :update, :destroy]
 
   def index
-    @admin = Admin.all
+    @admins = Admin.all
   end
   
   def new
@@ -17,9 +18,29 @@ class Superadmin::DashboardController < Superadmin::SuperAdminBaseController
     end
   end
 
+  def edit
+  end
 
 
+def update
+    if @admin.update(admin_params)
+      redirect_to superadmin_dashboard_index_path
+    else
+      render 'edit'
+  end
+end
+
+def destroy
+    @admin.destroy
+    redirect_to superadmin_dashboard_index_path
+end
+
+private 
   def admin_params
     params.require(:admin).permit(:first_name, :last_name, :email, :password)
   end
+
+  def get_admin
+    @admin = Admin.find(params[:id])
+  end  
 end
