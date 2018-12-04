@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dob: 2018-12-03
+  father_name: MyString
+  uid_pic: MyString
+  admission_date: 2018-12-03
+  standard: one
+
+two:
+  dob: 2018-12-03
+  father_name: MyString
+  uid_pic: MyString
+  admission_date: 2018-12-03
+  standard: two
