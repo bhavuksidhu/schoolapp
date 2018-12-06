@@ -1,0 +1,7 @@
+  First name: <%= @student.first_name %><br/>
+  Last name: <%= @student.last_name %><br/>
+  Date Of Birth: <%= @student.student_detail.try(:dob) %><br/>
+  Father Name: <%= @student.student_detail.try(:father_name) %><br/>
+  Adhar Card Picture: <%= @student.student_detail.try(:uid_pic) %><br/>
+  Date Of Admission <%= @student.student_detail.try(:admission_date) %><br/>
+  Standard: <%= @student.student_detail.try(:standard).try(:title) %><br/>

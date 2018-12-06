@@ -1,8 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
+
+  extend FriendlyId
+  friendly_id :first_name, use: :slugged
 
   ROLE = %w(SuperAdmin Admin Student)
 
@@ -13,5 +16,4 @@ class User < ApplicationRecord
      type == method
    end
  end
-
 end
