@@ -10,7 +10,10 @@ class Admin::DashboardController < Admin::AdminbaseController
   end
 
   def show
-    @student = Student.find(params[:id])
+    @student = Student.find(params[:id]) rescue nil
+    if @student.blank?
+      redirect_to admin_dashboard_index_path
+    end
   end
 
   def create
