@@ -4,11 +4,12 @@
   Last name: <%= student.last_name %><br/>
   Date Of Birth: <%= student.student_detail.try(:dob) %><br/>
   Father Name: <%= student.student_detail.try(:father_name) %><br/>
-  Adhar Card Picture: <%= student.student_detail.try(:uid_pic) %><br/>
+  Adhar Card Picture: 
+  <% if student.student_detail.present? && student.student_detail.uid_pic.present? %>
+    <%= image_tag student.student_detail.try(:uid_pic).url %><br/>
+  <%end%>  
   Date Of Admission <%= student.student_detail.try(:admission_date) %><br/>
   Standard: <%= student.student_detail.try(:standard).try(:title) %><br/>
   <%= link_to "show", admin_dashboard_path(student) %>
-  
 <% end %>
-
 

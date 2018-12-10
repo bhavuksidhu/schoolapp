@@ -17,9 +17,9 @@
 development:
   adapter: postgresql
   host: localhost
-  database: school_app_development
+  database: student_app_development
   username: postgres
-  password: postgres
+  password: password
   #password: password
   pool: 5
 
