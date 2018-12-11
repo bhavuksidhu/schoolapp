@@ -1,7 +1,8 @@
 class Admin::DashboardController < Admin::AdminbaseController
 
   def index
-    @students = Student.all
+    @search = Student.search(params[:q])
+    @students = @search.result
   end
 
   def new
@@ -10,7 +11,7 @@ class Admin::DashboardController < Admin::AdminbaseController
   end
 
   def show
-    @student = Student.find(params[:id]) rescue nil
+    @student = Student.friendly.find(params[:id]) rescue nil
     if @student.blank?
       redirect_to admin_dashboard_index_path
     end
