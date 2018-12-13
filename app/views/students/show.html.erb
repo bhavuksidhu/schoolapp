@@ -1,0 +1,54 @@
+<div class="main-wraper">
+  <div class="inner">
+    <div class="colr">
+      <section class="stu_section">
+        <div class="row">
+          <div class="col-sm-6 text-center">
+            <%= image_tag 'school.jpg',class:"stud-img" %>
+          </div>
+          <div class="col-sm-6">
+            <div class="studt-name">
+              <h2>
+                <%= @student.first_name %>
+                <%= @student.last_name %>              
+              </h2>
+              <h3>Father Name : <span><%= @student.student_detail.try(:father_name) %></span></h3>
+              <h3>Standard : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
+              <h3>Date Of Birth : <span><%= @student.student_detail.try(:dob) %></span></h3>
+              <h3>Date Of Admission : <span>1st April 2016</span></h3>
+              <h3>
+                Adhar Card Picture : 
+                <span>
+                <% if @student.student_detail.try(:uid_pic).present? %>
+                <%= image_tag @student.student_detail.try(:uid_pic).url, width: 100, height: 50 %><br/>
+                <% end %>
+                </span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fee information -->
+      <section class="fee-info">
+        <div class=" fee-inner">
+          <h2>Fee Information</h2>
+          <div class="row">
+            <div class="col-sm-3"><a href="#">January</a></div>
+            <div class="col-sm-3"><a href="#">February</a></div>
+            <div class="col-sm-3"><a href="#">March</a></div>
+            <div class="col-sm-3"><a href="#">April</a></div>
+            <div class="col-sm-3"><a href="#">May</a></div>
+            <div class="col-sm-3"><a href="#">June</a></div>
+            <div class="col-sm-3"><a href="#">July</a></div>
+            <div class="col-sm-3"><a href="#">August</a></div>
+            <div class="col-sm-3"><a href="#">September</a></div>
+            <div class="col-sm-3"><a href="#">October</a></div>
+            <div class="col-sm-3"><a href="#">November</a></div>
+            <div class="col-sm-3"><a href="#">December</a></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div><!--end of inner -->
+</div><!-- end of main-wraper -->
