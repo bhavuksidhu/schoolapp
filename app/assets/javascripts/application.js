@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.validate
 //= require rails-ujs
 //= require bootstrap.min
 //= require turbolinks

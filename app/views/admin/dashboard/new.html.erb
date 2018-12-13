@@ -73,4 +73,26 @@
 
 
 
+<script type="text/javascript">
+  $("#new_student").validate({
+      rules: {
+        "student[first_name]": {required: true},
+        "student[last_name]": {required: true},
+        "student[student_detail_attributes][dob]": {required: true, dob: true},
+        "student[student_detail_attributes][father_name]": {required: true},
+        "student[student_detail_attributes][uid_pic]": {required: true},
+        "student[student_detail_attributes][admission_date]": {required: true},
+        "student[student_detail_attributes][standard_id]": {required: true}
+      },
+      messages: {
+        "student[first_name]": {required: "*Please enter your first name"},
+        "student[last_name]": {required: "*Please enter your last name"},
+        "student[student_detail_attributes][dob]": {required: "*Please enter date of Birth"},
+        "student[student_detail_attributes][father_name]": {required: "*Please enter father name"},
+        "student[student_detail_attributes][uid_pic]": {required: "*Please select image"},
+        "student[student_detail_attributes][admission_date]": {required: "*Please enter admission date"},
+        "student[student_detail_attributes][standard_id]": {required: "*Please choose class"}
+      }
+    });
+</script>
 

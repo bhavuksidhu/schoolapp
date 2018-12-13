@@ -36,6 +36,27 @@
 <% end %>
 
 <%#= render "devise/shared/li" %>
+<script type="text/javascript">
+  $("#new_admin").validate({
+      rules: {
+        "admin[first_name]": {required: true},
+        "admin[last_name]": {required: true},
+        "admin[email]": {required: true, email: true},
+        "admin[password]": {required: true},
+        "admin[password_confirmation]": {required: true}
+      },
+      messages: {
+        "admin[first_name]": {required: "Please enter your firstname"},
+        "admin[last_name]": {required: "Please enter your last_name"},
+        "admin[email]": {required: "Please provide a password"},
+        "admin[password]": {required: "Please enter a valid email address"},
+        "admin[password_confirmation]": {required: "Please enter correct password"}
+      }
+    });
+</script>
+
+
+
 
 
 

@@ -19,12 +19,11 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'friendly_id', '~> 5.2.4' 
-
-
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-validation-rails'
 gem 'mini_racer'
 gem 'ransack'
 # Use CoffeeScript for .coffee assets and views

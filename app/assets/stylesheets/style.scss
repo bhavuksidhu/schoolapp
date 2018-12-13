@@ -277,7 +277,6 @@
 				display: block;
 		    width: 100%;
 		    height: 34px;
-		    margin-bottom: 30px;
 		    padding: 22px 0px 20px 1px;
 		    font-size: 15px;
 		    line-height: 1.42857143;
@@ -406,9 +405,12 @@
 			.form-group{
 				margin-bottom: 25px;
 			}
+			
+			
 			label{
 				margin-left:5px;
 				font-size:13px;
+				
 			}
 			input{
 				height:38px;
@@ -418,9 +420,11 @@
 					box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 				}
 			}
-			input[type="file"]{
-					
-				}
+			input#student_student_detail_attributes_uid_pic{
+				color:#69696a;
+				height: 28px;
+				padding: 2px 3px;
+			}
 			.sm{
 				width:50%;
 			}
@@ -453,4 +457,9 @@
 		}
 	}
 
+}
+
+/*js for all*/
+label.error{
+	color:#ed7171f5 !important;
 }
