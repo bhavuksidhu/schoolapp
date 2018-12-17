@@ -19,7 +19,7 @@ development:
   host: localhost
   database: student_app_development
   username: postgres
-  password: password
+  password: postgres
   #password: password
   pool: 5
 

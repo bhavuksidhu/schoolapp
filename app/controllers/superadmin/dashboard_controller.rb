@@ -41,6 +41,6 @@ private
   end
 
   def get_admin
-    @admin = Admin.find(params[:id])
+    @admin = Admin.friendly.find(params[:id])
   end  
 end
