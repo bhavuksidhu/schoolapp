@@ -1,14 +1,108 @@
-<%= form_for @student , url: admin_dashboard_index_path do |f| %>
-  First Name<%= f.text_field :first_name %><br/>
-  Last Name<%= f.text_field :last_name %><br>
-  <%= f.hidden_field :password, value: "password" %>
-  <%= f.fields_for :student_detail do |s_fields| %>
-      Date of Birth:<%= s_fields.date_field :dob %><br/>
-      Father Name:<%= s_fields.text_field :father_name %><br/>
-      Adhar Card Picture:<%= s_fields.file_field :uid_pic %><br/>
-      Date of Admission:<%= s_fields.date_field :admission_date %><br/>
-      Standard:<%= s_fields.collection_select(:standard_id, Standard.all, :id, :title) %><br/>
-  <% end %>
-     <%= f.submit :submit %>   
+
+    <div id="student_attachments">
+      <%= f.fields_for :student_attachments do |st_attachment| %>
+        <%= render 'student_attachment_fields', f: st_attachment%>
+        <div class="links">
+            <%= link_to_add_association 'add attachment', f, :student_attachments  %>
+        </div>
+      <% end %>
+    </div>
+  <%= f.submit :submit %>   
 <% end %>
-  
+<div class="form-create-student">
+  <div class="inner-form">
+      <div class="col-sm-7 start_form">
+        <h1>Create a new student</h1>
+        <%= form_for @student , url: admin_dashboard_index_path do |f| %>
+
+          <div class="form-group">
+            <label for="email">First Name*</label>
+            <%= f.text_field :first_name , placeholder:"First Name" , class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Last Name*</label>
+            <%= f.text_field :last_name , placeholder:"Last Name" , class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.hidden_field :password, value: "password" %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Father Name*</label>
+            <%= f.fields_for :student_detail do |s_fields| %>
+              <%= s_fields.text_field :father_name , placeholder:"Last Name" , class: "form-control" %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Date of Birth*</label>
+            <%= f.fields_for :student_detail do |s_fields| %>
+              <%= s_fields.date_field :dob , class: "form-control sm"  %>
+            <% end %>
+          </div>
+
+
+          <div class="form-group">
+            <label for="email">Adhar Card Picture*</label>
+            <%= f.fields_for :student_detail do |s_fields| %>
+               <%= s_fields.file_field :uid_pic , class: " sm" %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Date of Admission*</label>
+            <%= f.fields_for :student_detail do |s_fields| %>
+              <%= s_fields.date_field :admission_date , class: "form-control sm" %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Standard*</label>
+            <%= f.fields_for :student_detail do |s_fields| %>
+              <%= s_fields.collection_select(:standard_id, Standard.all, :id, :title) %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit :Submit , class: "form-control bttn" %>
+          </div>
+
+        <% end %>
+      </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $("#new_student").validate({
+      rules: {
+        "student[first_name]": {required: true},
+        "student[last_name]": {required: true},
+        "student[student_detail_attributes][dob]": {required: true},
+        "student[student_detail_attributes][father_name]": {required: true},
+        "student[student_attachments_attributes][0][attachment]": {required: true},
+        "student[student_detail_attributes][admission_date]": {required: true},
+        "student[student_detail_attributes][standard_id]": {required: true}
+      },
+      messages: {
+        "student[first_name]": {required: "Please enter your firstname"},
+        "student[last_name]": {required: "Please enter your last_name"},
+        "student[student_detail_attributes][dob]": {required: "Please enter date of Birth"},
+        "student[student_detail_attributes][father_name]": {required: "Please enter father name"},
+        "student[student_attachments_attributes][0][attachment]": {required: "Please select image"},
+        "student[student_detail_attributes][admission_date]": {required: "Please enter admission date"},
+        "student[student_detail_attributes][standard_id]": {required: "Please choose class"}
+        "student[first_name]": {required: "*Please enter your first name"},
+        "student[last_name]": {required: "*Please enter your last name"},
+        "student[student_detail_attributes][dob]": {required: "*Please enter date of Birth"},
+        "student[student_detail_attributes][father_name]": {required: "*Please enter father name"},
+        "student[student_detail_attributes][uid_pic]": {required: "*Please select image"},
+        "student[student_detail_attributes][admission_date]": {required: "*Please enter admission date"},
+        "student[student_detail_attributes][standard_id]": {required: "*Please choose class"}
+      }
+    });
+</script>
+

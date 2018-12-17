@@ -8,6 +8,7 @@ class Admin::DashboardController < Admin::AdminbaseController
   def new
     @student = Student.new
     @student.build_student_detail
+    @student.student_attachments.build
   end
 
   def show
@@ -33,6 +34,7 @@ class Admin::DashboardController < Admin::AdminbaseController
   def student_params
     params.require(:student).permit(
     :first_name, :last_name, :password,
-    student_detail_attributes: [ :dob, :father_name, :uid_pic, :admission_date, :standard_id])
+    student_detail_attributes: [:dob, :father_name,  :admission_date, :standard_id],
+    student_attachments_attributes: [:attachment])
   end
 end
