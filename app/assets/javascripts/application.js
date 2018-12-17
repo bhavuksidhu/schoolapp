@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery.validate
 //= require rails-ujs
+//= require cocoon
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
