@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
       if current_user.superadmin?
-        redirect_to superadmin_dashboard_index_path
+        superadmin_dashboard_index_path
       elsif current_user.admin?
-        redirect_to admin_dashboard_index_path
+        admin_dashboard_index_path
       else
-        redirect_to root_path
+        root_path
       end
     end
 end

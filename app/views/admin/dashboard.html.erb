@@ -20,10 +20,11 @@
       <%= search_form_for @search do |f| %>
         <div class="field form-group">
           <%= f.label :first_name_start, "Search Students" %>
-           <%= f.text_field :first_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
-           <div class="actions"><%= f.submit "Search" %></div>
+          <%= f.text_field :first_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
+          <div class="actions">
+            <%= f.submit "Search" %>
+          </div>
         </div>
-        
       <% end %>
       <table class="btn_table">
         <tr>
@@ -86,8 +87,6 @@
   </div>
  </div>
   </div>
-  <div class="actions"><%= f.submit "Search" %></div>
-<% end %>
 <table>
   <tr>
     <th><%= sort_link(@search, :first_name) %></th>
@@ -95,20 +94,5 @@
   </tr>
 </table>
 <%= link_to "create_new_student", new_admin_dashboard_path %>
-<% @students.each do |student| %><br/>
-  First name: <%= student.first_name %><br/>
-  Last name: <%= student.last_name %><br/>
-  Date Of Birth: <%= student.student_detail.try(:dob) %><br/>
-  Father Name: <%= student.student_detail.try(:father_name) %><br/>
-  Adhar Card Picture: 
-  <% if student.student_attachments.present? %>
-    <%student.student_attachments.each do |st_attachment|%>
-      <%= image_tag st_attachment.try(:attachment).url, width: 100, height: 50 %><br/>
-    <%end%>
-  <%end%>  
-  Date Of Admission <%= student.student_detail.try(:admission_date) %><br/>
-  Standard: <%= student.student_detail.try(:standard).try(:title) %><br/>
-  <%= link_to "show", admin_dashboard_path(student) %>
-<% end %>
 </div>
 </div>

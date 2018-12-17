@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :is_authorize_to_create_student
+  before_action :get_student, only: [:edit, :update, :show, :destroy]
 
   def index
     @search = Student.search(params[:q])
@@ -25,10 +27,19 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.friendly.find(params[:id])
   end
 
   def edit
+  end
+
+  def update
+    if @student.update(student_params)
+      flash[:success] = "Student updated successfully!"
+      redirect_to students_path
+    else
+      flash[:error] = "Something went wrong!"
+      render :edit
+    end
   end
 
 private
@@ -43,5 +54,9 @@ private
     params.require(:student).permit(:first_name, :last_name, :password,
                                       student_detail_attributes: [:id, :dob, :father_name,  :admission_date, :standard_id, :_destroy],
                                       student_attachments_attributes: [:id, :attachment, :_destroy])
-  end   
+  end
+
+  def get_student
+    @student = Student.friendly.find(params[:id])
+  end
 end
