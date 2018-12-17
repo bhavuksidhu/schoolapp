@@ -15,8 +15,8 @@
         </div>
         <div class="field ">
           <% if devise_mapping.rememberable? -%>
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
           <% end -%>
         </div>
       </div>
@@ -28,6 +28,7 @@
     </div>
   </div>
 </div>
+
 <script type="text/javascript">
   $("#new_user").validate({
       rules: {
@@ -35,8 +36,8 @@
         "user[password]": {required: true}
       },
       messages: {
-        "user[password]": {required: "*Please provide a password", email: "Please enter a valid email address."},
-        "user[email]": {required: "*Please enter a valid email address"}
+        "user[password]": {required: "*Please provide a password!"},
+        "user[email]": {required: "*Email can't be blank!", email: "* Please enter a valid email address!"}
       }
     });
 </script>

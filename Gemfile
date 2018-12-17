@@ -4,8 +4,6 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
@@ -18,15 +16,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem "cocoon"
-gem 'friendly_id', '~> 5.2.4' 
-gem 'devise'
-gem 'carrierwave', '~> 1.0'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jquery-validation-rails'
 gem 'mini_racer'
-gem 'ransack'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -61,3 +51,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "cocoon"
+gem 'friendly_id', '~> 5.2.4' 
+gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'toastr_rails'
+gem 'jquery-validation-rails'
+gem 'ransack'

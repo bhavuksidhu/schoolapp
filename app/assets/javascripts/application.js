@@ -16,5 +16,6 @@
 //= require rails-ujs
 //= require cocoon
 //= require bootstrap.min
+//= require toastr_rails
 //= require turbolinks
 //= require_tree .

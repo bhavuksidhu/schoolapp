@@ -1,15 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
 
     def after_sign_in_path_for(resource)
       if current_user.superadmin?
-        superadmin_dashboard_index_path
-      elsif
-        current_user.admin?
-        admin_dashboard_index_path
+        redirect_to superadmin_dashboard_index_path
+      elsif current_user.admin?
+        redirect_to admin_dashboard_index_path
       else
-        root_path
+        redirect_to root_path
       end
     end
 end
