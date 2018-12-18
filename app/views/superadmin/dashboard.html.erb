@@ -1,9 +1,0 @@
-<%= link_to 'create_admin', new_superadmin_dashboard_path %>
-<%= link_to "Student_list", students_path %>
-<% @admins.each do |admin| %><br/>
-  First name: <%= admin.first_name %><br/>
-  Last name: <%= admin.last_name %><br/>
-  Email: <%= admin.email %><br/>
-  <%= link_to 'Edit', edit_superadmin_dashboard_path(admin) %>
-  <%= link_to 'Delete', superadmin_dashboard_path(admin),method: :delete,data: { confirm: 'Are you sure?' } %>
-<% end %>

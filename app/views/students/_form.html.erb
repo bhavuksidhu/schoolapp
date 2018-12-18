@@ -20,17 +20,17 @@
 
     <div class="form-group">
       <label for="email">Date of Birth*</label>
-      <%= s_detail.date_field :dob , class: "form-control sm"  %>
+      <%= s_detail.text_field :dob , class: "form-control sm"  %>
     </div>
 
     <div class="form-group">
       <label for="email">Date of Admission*</label>
-      <%= s_detail.date_field :admission_date , class: "form-control sm" %>
+      <%= s_detail.text_field :admission_date , class: "form-control sm" %>
     </div>
 
     <div class="form-group">
       <label for="email">Standard*</label>
-      <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:id, :title))%>
+      <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
     </div>
   <%end%>
   <div id="student_attachments">
@@ -65,4 +65,19 @@
       "student[student_detail_attributes][standard_id]": {required: "*Please select one standard of student!"}        
     }
   });
+
+  $(document).ready(function() {
+    $("#student_student_detail_attributes_dob").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      orientation: "top",
+      endDate: "today"
+    });
+    $("#student_student_detail_attributes_admission_date").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      orientation: "top",
+      endDate: "today"
+    });
+  });  
 </script>

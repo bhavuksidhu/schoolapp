@@ -60,3 +60,6 @@ gem 'jquery-ui-rails'
 gem 'toastr_rails'
 gem 'jquery-validation-rails'
 gem 'ransack'
+gem 'bootstrap-datepicker-rails'
+gem 'will_paginate'
+

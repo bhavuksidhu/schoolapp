@@ -1,2 +1,10 @@
-<h1>SuperAdmin#dashboard</h1>
-<p>Find me in app/views/super_admin/dashboard.html.erb</p>
+<%= link_to 'create_admin', new_admin_path %>
+<%= link_to "Student_list", students_path %>
+<%= will_paginate @admins %>
+<% @admins.each do |admin| %><br/>
+  First name: <%= admin.first_name %><br/>
+  Last name: <%= admin.last_name %><br/>
+  Email: <%= admin.email %><br/>
+  <%= link_to 'Edit', edit_admin_path(admin) %>
+  <%= link_to 'Delete', admin_path(admin.slug), method: :delete,data: { confirm: 'Are you sure?' } %>
+<% end %>

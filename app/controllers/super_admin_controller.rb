@@ -3,7 +3,8 @@ class SuperAdminController < ApplicationController
   before_action :ensure_is_superadmin
 
   def dashboard
-    @admins = Admin.all
+    params[:page] ||= 1
+    @admins = Admin.all.paginate(:page => params[:page], :per_page => 2).order('created_at DESC')
   end
 
   private

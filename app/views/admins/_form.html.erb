@@ -1,6 +1,6 @@
-<h2>Sign up Admin</h2>
+<h2>Create New Admin</h2>
 
-<%= form_for(@admin, url: superadmin_dashboard_index_path) do |f| %>
+<%= form_for(@admin) do |f| %>
   <%#= devise_error_messages! %>
   <div class="field">
     <%= f.label :first_name %><br />
@@ -42,17 +42,18 @@
         "admin[first_name]": {required: true},
         "admin[last_name]": {required: true},
         "admin[email]": {required: true, email: true},
-        "admin[password]": {required: true},
-        "admin[password_confirmation]": {required: true}
+        "admin[password]": {required: true, minlength: 6},
+        "admin[password_confirmation]": {equalTo: "#admin_password", minlength: 6}
       },
       messages: {
         "admin[first_name]": {required: "Please enter your firstname"},
         "admin[last_name]": {required: "Please enter your last_name"},
-        "admin[email]": {required: "Please provide a password"},
-        "admin[password]": {required: "Please enter a valid email address"},
+        "admin[email]": {required: "Please provide a email"},
+        "admin[password]": {required: "Please enter a valid password"},
         "admin[password_confirmation]": {required: "Please enter correct password"}
       }
     });
+  
 </script>
 
 

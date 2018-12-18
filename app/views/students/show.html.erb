@@ -2,9 +2,9 @@
   <div class="inner">
     <div class="colr">
       <section class="stu_section">
-        <div class="row">
+        <div class="row"> 
           <div class="col-sm-6 text-center">
-            <%= image_tag 'school.jpg',class:"stud-img" %>
+            
           </div>
           <div class="col-sm-6">
             <div class="studt-name">
@@ -19,8 +19,10 @@
               <h3>
                 Adhar Card Picture : 
                 <span>
-                <% if @student.student_detail.try(:uid_pic).present? %>
-                <%= image_tag @student.student_detail.try(:uid_pic).url, width: 100, height: 50 %><br/>
+                <% if @student.student_attachments.present? %>
+                <% @student.student_attachments.each do |st_attachment|%>
+                <%= image_tag st_attachment.try(:attachment).url, width: 100, height: 50 if st_attachment.attachment.present? %><br/>
+                <% end %>
                 <% end %>
                 </span>
               </h3>

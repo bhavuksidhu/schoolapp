@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class AdminsController < ApplicationController
   before_action :authenticate_user!
   before_action :get_admin, only: [:edit, :update, :destroy]
   before_action :ensure_is_admin, only: [:dashboard]
@@ -7,7 +7,7 @@ class AdminController < ApplicationController
 
   def dashboard
     @search = Student.search(params[:q])
-    @students = @search.result    
+    @students = @search.result 
   end
 
   def new
@@ -16,9 +16,11 @@ class AdminController < ApplicationController
   
   def create
     @admin =  Admin.create(admin_params)
-    if @admin.save 
-      redirect_to superadmin_dashboard_index_path
+    if @admin.save
+      flash[:success] = "Admin created successfully!"
+      redirect_to dashboard_super_admin_index_path
     else
+      flash[:error] = "Something went wrong!"
       render :new
     end
   end
@@ -28,7 +30,7 @@ class AdminController < ApplicationController
 
   def update
     if @admin.update(admin_params)
-      redirect_to superadmin_dashboard_index_path
+      redirect_to dashboard_admins_path
     else
       render 'edit'
     end
@@ -36,7 +38,7 @@ class AdminController < ApplicationController
 
   def destroy
     @admin.destroy
-    redirect_to superadmin_dashboard_index_path
+    redirect_to dashboard_super_admin_index_path
   end
 
   private

@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root to: 'home#index' 
   devise_for :users, :skip => [:registrations]
  
-  resources :superadmin, only: [] do
+  resources :super_admin, only: [] do
     collection do
       get :dashboard
     end
   end
 
-  resources :admin do
+  resources :admins do
   	collection do
   		get :dashboard
   	end

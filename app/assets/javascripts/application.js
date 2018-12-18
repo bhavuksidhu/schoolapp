@@ -19,3 +19,4 @@
 //= require toastr_rails
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-datepicker

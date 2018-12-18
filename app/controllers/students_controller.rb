@@ -4,8 +4,9 @@ class StudentsController < ApplicationController
   before_action :get_student, only: [:edit, :update, :show, :destroy]
 
   def index
+    params[:page] ||= 1
     @search = Student.search(params[:q])
-    @students = @search.result
+    @students = @search.result.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
   end
 
   def new
