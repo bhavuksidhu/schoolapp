@@ -19,10 +19,9 @@ development:
   host: localhost
   database: student_app_development
   username: postgres
-  password: password
+  password: postgres
   #password: password
   pool: 5
-
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

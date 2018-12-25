@@ -33,11 +33,12 @@
       <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
     </div>
   <%end%>
-  <div id="student_attachments">
-    <%= f.fields_for :student_attachments do |st_attachment| %>
+  <div id="student_attachments" class="attachment">
+    <%= f.fields_for :student_attachments do |st_attachment|  %>
       <%= render 'student_attachment_fields', f: st_attachment%>
       <div class="links">
-          <%= link_to_add_association 'add attachment', f, :student_attachments  %>
+          <i class="fas fa-plus-square"></i>
+          <%= link_to_add_association 'Add Attachment', f, :student_attachments %>
       </div>
     <% end %>
   </div>        

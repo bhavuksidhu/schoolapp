@@ -1,17 +1,22 @@
 <div class="main-wraper">
-<nav class="navbar navbar-inverse">
-  <div class="container">
-    <div class="navbar-header">
+<nav class="top_navbar">
+  <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1">
+    <!-- <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    </div> -->
+    <!-- <div class="collapse navbar-collapse" id="myNavbar"> -->
       
-      <ul class="nav navbar-nav">
+      <ul class="">
+        <li>
+          <%=link_to root_path do%>
+            <i class="fas fa-home"></i> Home
+          <%end%>
+        </li>
+        <li><%= link_to "Create New Admin", new_admin_path %></li>
         <li><%= link_to "Create New Student", new_student_path %></li>
         <li>
           <% if user_signed_in? %>
@@ -21,7 +26,7 @@
           <% end %>
         </li>
       </ul>
-    </div>
+    <!-- </div> -->
   </div>
 </nav>
 </div>

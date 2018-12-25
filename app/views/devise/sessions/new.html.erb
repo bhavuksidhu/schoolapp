@@ -1,12 +1,11 @@
 <div class="log_in_page">
   <div class="top-clr">
-    <h1>Wink</h1>
+    <h1>Login</h1>
   </div>
   <div class="bottom-clr">
     <div class="center_form col-xs-12 col-sm-6  col-md-4 offset-md-4">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="center_form-inner">
-        <h1>LOGIN</h1>
         <div class="field form-group">
           <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder:"Email" , class: "form-control" %>
         </div>

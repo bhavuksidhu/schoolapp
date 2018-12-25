@@ -1,10 +1,32 @@
-<%= link_to 'create_admin', new_admin_path %>
-<%= link_to "Student_list", students_path %>
-<%= will_paginate @admins %>
-<% @admins.each do |admin| %><br/>
-  First name: <%= admin.first_name %><br/>
-  Last name: <%= admin.last_name %><br/>
-  Email: <%= admin.email %><br/>
-  <%= link_to 'Edit', edit_admin_path(admin) %>
-  <%= link_to 'Delete', admin_path(admin.slug), method: :delete,data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class="main-wraper">
+  <div class="inner">
+    <div class="create_buttons">
+      <%= link_to 'Create Admin', new_admin_path , class: 'tob-btn' %>
+      <%= link_to "Student List", students_path %>
+    </div>
+  <div class="table-responsive stud-list">
+    <table class="table table-hover">
+      <thead>
+        <tr class="">
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admins.each do |admin| %><br/>
+        <tr>
+          <td><%= admin.first_name %></td>
+          <td><%= admin.last_name %></td>
+          <td><%= admin.email %></td>
+          <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+          <td><%= link_to 'Delete', admin_path(admin.slug), method: :delete,data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+   </div>
+   </div>
+</div>
