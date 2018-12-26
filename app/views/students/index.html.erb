@@ -1,7 +1,6 @@
-
 <div class="main-wraper">
 	<div class="inner">
-		<section>
+		<section class="student-profile">
 			 <div class="table-responsive">
 			  <table class="table table-hover">
 			    <thead>
@@ -13,7 +12,6 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-            <% binding.pry %>
             <%= will_paginate @students %>
 			    	<% @students.each do |student| %>
 				      <tr>
@@ -29,3 +27,4 @@
 		</section>
 	</div>
 </div>
+
