@@ -52,8 +52,9 @@ private
   end
 
   def student_params
+    params[:student][:student_detail_attributes][:fee_paid] = params[:student][:student_detail_attributes][:fee_paid].to_i
     params.require(:student).permit(:first_name, :last_name, :password,
-                                      student_detail_attributes: [:id, :dob, :father_name,  :admission_date, :standard_id, :_destroy],
+                                      student_detail_attributes: [:id, :dob, :father_name,  :admission_date, :standard_id, :fee_paid, :_destroy],
                                       student_attachments_attributes: [:id, :attachment, :_destroy])
   end
 
