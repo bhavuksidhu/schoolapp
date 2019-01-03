@@ -1,15 +1,14 @@
 .main-wraper{     
   width:100%;
-  background:#fff;
+  background:#fafafa;
   font-family: 'Lato', sans-serif;
   .inner{
     max-width:1000px;
-    background:#fff;
     padding:20px;
     margin:0 auto;
     .colr{
       width:100%;
-      background: #f6f6f6;
+      background: #fff;
       border-radius: 6px;
       box-shadow: 0 0 3px #999898;
     }
@@ -41,11 +40,28 @@
       }
     }
   }
+
+  a.new-student-path {
+    float: right;
+    display: block;
+    margin-top: -46px;
+    -webkit-box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+    box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: #4e94fc;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      background: #589bff;
+    }
+  }
   .top_navbar{
     width:100%;
     float:left;
     background-color: #4e94fc;
-    box-shadow: 0 0 10px 0px #f0f0f0;
     ul{
       list-style: none;
       float: right;
@@ -78,16 +94,34 @@
     }
   }
 
-
+  p.student-counter {
+    margin-bottom: -10px;
+    font-weight: 900;
+    margin-top: 20px;
+  }
+.stud-list .nav-tabs > li a.active {
+  background: #fff !important;
+}
+img.paid-stamp {
+    position: absolute;
+    top: 15px;
+    width: 38px;
+    left: 36px;
+}
   .stu_section{
       padding: 60px 30px;
-      border-bottom: 1px solid lightgrey;
+      border-bottom: 1px solid #d8d7d7;
       /*col-5*/
         .carousel-inner{
           .item{
+            .adhar-inner {
+              width: 100%;
+              height: 240px;
+            }
             img{
-              width: 354px;
-              height: 215px;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
               @media screen and (max-width:768px){
                 width:100%;
                 height:auto;
@@ -101,8 +135,10 @@
         .btn{
           padding: 2px 8px;
           outline: none;
-          background: #45ae72;
-          color:#fff;
+          color: #fff;
+          box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
+          font-weight: 700;
+          background: #4e94fc;
         }
       }
 
@@ -114,9 +150,10 @@
           text-align: center;
         }
         h2{
-          font-size:32px;
+          font-size:22px;
           margin-top:0px;
           color:#000;
+          font-weight: 900;
         }
         h3{
           font-size: 15px;
@@ -136,26 +173,37 @@
       .fee-inner{
         padding:0px 20px;
         /*text-align:center;*/
-        h2{
-          margin-bottom:30px;
-          text-align:center;
-          color:#000;
+        h3{
+          margin-top: 0px;
+        }
+
+        p.text-center {
+          margin-bottom: 30px;
+          margin-top: -5px;
         }
         .mya{
-          background: #46af73;
+          background: #28a745;
           color:#fff;
         }
         a{
           margin: 10px;
           padding: 10px;
-          background: #e0e0e0;
+          background: #ffffff;
           text-decoration: none;
           margin-bottom: 20px;
           display: block;
           border-radius: 20px;
           text-align: center;
-          color: #3a3a3a;
+          color: #28a745;
           font-weight: 600;
+          box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+        }
+
+        a.fee-info-btn {
+          display: block;
+          position: relative;
+          top: 20px;
+          border: none !IMPORTANT;
         }
       }
     }
@@ -167,7 +215,7 @@
       .cstm{
           width: 54%;
           margin: 0 auto;
-          height:30px;
+          height:40px;
           font-size:16px;
           color: #1c1b1b;
           border-radius:0px;
@@ -187,9 +235,9 @@
               position: absolute;
               right: 23%;
               top: 37px;
-              padding: 5px 28px;
+              padding: 10px 28px;
               border: none;
-              background: #7ebeff;
+              background: #4e94fc;
               color: #fff;
               font-weight: bold;
               border-radius: 0px;
@@ -252,26 +300,29 @@
         list-style:none;
         width:100%;
         a{
-          background-color: #637fcf !important;
+          background-color: #637fcf;
           border:none;
-          border-bottom-color: none;
           text-decoration:none;
           display:block;
           padding:10px 30px;
           color: #fff;
           border-radius: 0;
-          margin-top: 2px;
+          margin: 0px;
           font-size:16px;
+
+          &.active {
+            background: #fff;
+          }
           &:hover{
-              color: #fff;
-              background-color: #aaaaac52 !important;
+              color: #637fcf;
+              background-color: #fff !important;
               border:none;
               border-bottom-color: none;
             }
             &:focus{
-              color: #fff;
-              background-color: #aaaaac52 !important;
-              border:none;
+              color: #637fcf;
+              background-color: #fff !important;
+              border: none;
               border-bottom-color: none;
             }
         }
@@ -530,5 +581,10 @@
 /*js for all*/
 label.error{
   color:#ed7171f5 !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+  background-color: #fff !important;
+  color: #637fcf !important;
 }
 

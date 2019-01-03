@@ -17,7 +17,7 @@
           <%end%>
         </li>
         <!-- <li><%#= link_to "Create New Admin", new_admin_path %></li> -->
-        <li><%= link_to "Create New Student", new_student_path %></li>
+        <li><%= link_to "Go to Admin", dashboard_admins_path %></li>
         <li>
           <% if user_signed_in? %>
             <%= link_to "logout", destroy_user_session_path, method: :delete %>

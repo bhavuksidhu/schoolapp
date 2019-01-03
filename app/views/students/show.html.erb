@@ -1,3 +1,4 @@
+<% content_for :title, "#{@student.name.capitalize} - #{@student.student_detail.try(:standard).try(:title)} Class" %>
 <div class="main-wraper">
   <div class="inner">
     <div class="colr">
@@ -9,13 +10,24 @@
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                    <%= image_tag 'manadhar.jpg',class:"img-responsive" %>
-                  </div>
-
-                  <div class="item">
-                    <%= image_tag 'dog.jpg',class:"img-responsive" %>
-                  </div>
+                    <%#= image_tag st_attachment.try(:attachment).url, width: 100, height: 50 if st_attachment.attachment.present? %>
+                      <% i = 0 %>
+                        <%@student.student_attachments.each do |st_attachment|%>
+                          <% if i == 0 %>
+                          <div class="item active"> 
+                          <% i = i+1 %>
+                          <%else %>
+                          <div class="item">
+                        <%end%>
+                        <div class="adhar-inner">
+                          <%if st_attachment.attachment.present?%>
+                            <%= image_tag st_attachment.try(:attachment).url  %>
+                          <else
+                            <%=image_tag "unavailable-img.png"%>
+                          <% end %>
+                        </div>
+                      </div>
+                      <%end%>
                 </div>
               </div>
 
@@ -23,20 +35,6 @@
                 <button type="button" id="myBtn" class="btn" id="myBtn"><</button>
                 <button type="button" id="myBtn2" class="btn" id="myBtn">></button>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
           <div class="col-sm-7">
             <div class="studt-name">
@@ -45,10 +43,10 @@
                 <%= @student.last_name %>              
               </h2>
               <h3>Father Name : <span><%= @student.student_detail.try(:father_name) %></span></h3>
-              <h3>Standard : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
+              <h3>Class : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
               <h3>Date Of Birth : <span><%= @student.student_detail.try(:dob) %></span></h3>
               <h3>Date Of Admission : <span>1st April 2016</span></h3>
-              <h3>Session
+              <h3>Current Session
                 <span>
                   <% if Date.today.month < 4 %>
                     <%= "#{Date.today.year - 1} - #{Date.today.year}" %>
@@ -56,16 +54,6 @@
                     <%= "#{Date.today.year} - #{Date.today.year + 1}" %>
                   <% end %>
                 </span></h3>
-              <h3>
-                Aadhaar Card : 
-                <span>
-                <% if @student.student_attachments.present? %>
-                <% @student.student_attachments.each do |st_attachment|%>
-                <%= image_tag st_attachment.try(:attachment).url, width: 100, height: 50 if st_attachment.attachment.present? %><br/>
-                <% end %>
-                <% end %>
-                </span>
-              </h3>
             </div>
           </div>
         </div>
@@ -73,16 +61,28 @@
       <!-- fee information -->
       <section class="fee-info">
         <div class=" fee-inner">
-          <h2>Fee Information</h2>
+          <h3 class="text-center">Fee Information</h3>
+          <p class="text-center">
+            Session: <span>
+                  <% if Date.today.month < 4 %>
+                    <%= "#{Date.today.year - 1} - #{Date.today.year}" %>
+                  <% else %>
+                    <%= "#{Date.today.year} - #{Date.today.year + 1}" %>
+                  <% end %>
+                </span>
+          </p>
           <div class="row">
             <%StudentDetail.fee_paids.each do |k, v|%>
                 <% if v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
-                <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a></div>
+                <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a>
+                  <%=image_tag 'paid-stamp.png', class: "paid-stamp" %>
+                </div>
               <% else %>
                 <div class="col-sm-3"><a href="#"><%= k %></a></div>
               <% end%>
             <% end %>
           </div>
+          <a class="fee-info-btn" href="">Update fee information</a>
         </div>
       </section>
     </div>
