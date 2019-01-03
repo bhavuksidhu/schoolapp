@@ -44,8 +44,8 @@
   .top_navbar{
     width:100%;
     float:left;
-    background-color: #37ae72;
-    box-shadow: 0 0 1px 2px #f0f0f0;
+    background-color: #4e94fc;
+    box-shadow: 0 0 10px 0px #f0f0f0;
     ul{
       list-style: none;
       float: right;
@@ -82,13 +82,31 @@
   .stu_section{
       padding: 60px 30px;
       border-bottom: 1px solid lightgrey;
-      .stud-img{
-        /*width:100%;*/
-        @media screen and (max-width:680px){
-          width:100%;
+      /*col-5*/
+        .carousel-inner{
+          .item{
+            img{
+              width: 354px;
+              height: 215px;
+              @media screen and (max-width:768px){
+                width:100%;
+                height:auto;
+              }
+            }
+          }
         }
-        
+      .mybtn{
+        text-align:center;
+        margin-top: 15px;
+        .btn{
+          padding: 2px 8px;
+          outline: none;
+          background: #45ae72;
+          color:#fff;
+        }
       }
+
+      /*col-7*/
       .studt-name{
         @media screen and (max-width:767px){
           margin: 0 auto;
@@ -272,7 +290,7 @@
 .log_in_page{
   width:100%;
   .top-clr{
-    background:#00b8f4;
+    background:#4e94fc;
     padding: 42px 0px 150px 0px;
     text-align:center;
     h1{
@@ -344,13 +362,13 @@
             border: none;
             padding: 10px 0px;
             color: #fff;
-            background: #00b8f4;
+            background: #4e94fc;
             border-radius: 2px;
             font-size: 15px;
-            border: 1px solid #0dacff;
+            border: 1px solid #4e94fc;
             transition:.3s;
             &:hover{
-              color:#0dacff;
+              color:#4e94fc;
               background:#fff;
 
             }
@@ -368,13 +386,14 @@
           font-size: 15px;
           font-weight: 600;
           color: #fff;
-          background: #0dacff;
-          border: 1px solid #0dacff;
+          background: #4e94fc;
+          border: 1px solid #4e94fc;
           border-radius: 2px;
+          outline:none;
           &:hover{
-          background:#fff;
-          color:#0dacff;
-          transition:.3s;
+            background:#fff;
+            color:#4e94fc;
+            transition:.3s;
           }
         }
         a{
@@ -390,14 +409,14 @@
             font-size: 15px;
             font-weight: 600;
             color: #fff;
-            background: #0dacff;
-            border: 1px solid #0dacff;
+            background: #4e94fc;
+            border: 1px solid #4e94fc;
             text-decoration:none;
             border-radius: 2px;
             transition:.3s;
             &:hover{
               background:#fff;
-              color:#0dacff;
+              color:#4e94fc;
             }
           }
         }
