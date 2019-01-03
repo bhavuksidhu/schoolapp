@@ -44,7 +44,6 @@
           <h2>Fee Information</h2>
           <div class="row">
             <%StudentDetail.fee_paids.each do |k, v|%>
-            <% binding.pry %>
                 <% if v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
                 <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a></div>
               <% else %>
