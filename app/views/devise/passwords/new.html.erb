@@ -1,16 +1,63 @@
-<h2>Forgot your password?</h2>
+<div class="log_in_page">
+  <div class="top-clr">
+    <h1>Forgot your password?</h1>
+  </div>
+  <div class="bottom-clr">
+    <div class="center_form col-xs-12 col-sm-6  col-md-4 offset-md-4">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  		  <%= devise_error_messages! %>
+        <div class="center_form-inner">
+            <div class="field form-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder:"Email" , class: "form-control" %>
+            </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+            <div class="field form-group forget_btn">
+              <%= f.submit "Send me reset password instructions" %>
+            </div>
+
+            </div>
+						
+			
+            <div class="log-footer">
+            	<span class="log_forget">
+            	<%= render "devise/shared/links" %>
+            	</span>
+            	<% end %>
+            </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h2>Forgot your password?</h2>
+
+<%#= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%#= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%#= f.label :email %><br />
+    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%#= f.submit "Send me reset password instructions" %>
   </div>
-<% end %>
+<%# end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %> -->

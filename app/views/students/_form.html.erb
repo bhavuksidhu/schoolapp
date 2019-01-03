@@ -1,0 +1,89 @@
+<%= form_for student do |f| %>
+  <div class="form-group">
+    <label for="email">First Name*</label>
+    <%= f.text_field :first_name , placeholder:"First Name" , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Last Name*</label>
+    <%= f.text_field :last_name , placeholder:"Last Name" , class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.hidden_field :password, value: "password" %>
+  </div>
+  <%= f.fields_for :student_detail do |s_detail| %>
+    <div class="form-group">
+      <label for="email">Father Name*</label>
+      <%= s_detail.text_field :father_name , placeholder:"Last Name" , class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Date of Birth*</label>
+      <%= s_detail.text_field :dob , class: "form-control sm"  %>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Date of Admission*</label>
+      <%= s_detail.text_field :admission_date , class: "form-control sm" %>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Standard*</label>
+      <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Fee Paid*</label>
+      <%= s_detail.select :fee_paid, options_for_select(StudentDetail.fee_paids.map {|k, v| [k.humanize.capitalize, v]})%>
+    </div>
+  <%end%>
+  <div id="student_attachments" class="attachment">
+    <%= f.fields_for :student_attachments do |st_attachment|  %>
+      <%= render 'student_attachment_fields', f: st_attachment%>
+      <div class="links">
+          <i class="fas fa-plus-square"></i>
+          <%= link_to_add_association 'Add Attachment', f, :student_attachments %>
+      </div>
+    <% end %>
+  </div>        
+    <div class="form-group">
+    <%= f.submit :Submit , class: "form-control bttn" %>
+    </div>          
+<% end %>
+
+<script type="text/javascript">
+  $("#new_student").validate({
+    rules: {
+      "student[first_name]": {required: true},
+      "student[last_name]": {required: true},
+      "student[student_detail_attributes][dob]": {required: true},
+      "student[student_detail_attributes][admission_date]": {required: true},
+      "student[student_detail_attributes][father_name]": {required: true},
+      "student[student_detail_attributes][standard_id]": {required: true}
+    },
+    messages: {
+      "student[first_name]": {required: "*First name can't be blank!"},
+      "student[last_name]": {required: "*Last name can't be blank!"},
+      "student[student_detail_attributes][dob]": {required: "*Date of birth can't be blank!"},
+      "student[student_detail_attributes][admission_date]": {required: "*Admission date can't be blank!"},
+      "student[student_detail_attributes][father_name]": {required: "*Father name can't be blank!"},
+      "student[student_detail_attributes][standard_id]": {required: "*Please select one standard of student!"}        
+    }
+  });
+
+  $(document).ready(function() {
+    $("#student_student_detail_attributes_dob").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      orientation: "top",
+      endDate: "today"
+    });
+    $("#student_student_detail_attributes_admission_date").datepicker({
+      format: "dd/mm/yyyy",
+      autoclose: true,
+      orientation: "top",
+      endDate: "today"
+    });
+  });  
+</script>

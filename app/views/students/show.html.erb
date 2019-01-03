@@ -1,0 +1,60 @@
+<div class="main-wraper">
+  <div class="inner">
+    <div class="colr">
+      <section class="stu_section">
+        <div class="row"> 
+          <div class="col-sm-6 text-center">
+            
+          </div>
+          <div class="col-sm-6">
+            <div class="studt-name">
+              <h2>
+                <%= @student.first_name %>
+                <%= @student.last_name %>              
+              </h2>
+              <h3>Father Name : <span><%= @student.student_detail.try(:father_name) %></span></h3>
+              <h3>Standard : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
+              <h3>Date Of Birth : <span><%= @student.student_detail.try(:dob) %></span></h3>
+              <h3>Date Of Admission : <span>1st April 2016</span></h3>
+              <h3>Session
+                <span>
+                  <% if Date.today.month < 4 %>
+                    <%= "#{Date.today.year - 1} - #{Date.today.year}" %>
+                  <% else %>
+                    <%= "#{Date.today.year} - #{Date.today.year + 1}" %>
+                  <% end %>
+                </span></h3>
+              <h3>
+                Aadhaar Card : 
+                <span>
+                <% if @student.student_attachments.present? %>
+                <% @student.student_attachments.each do |st_attachment|%>
+                <%= image_tag st_attachment.try(:attachment).url, width: 100, height: 50 if st_attachment.attachment.present? %><br/>
+                <% end %>
+                <% end %>
+                </span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- fee information -->
+      <section class="fee-info">
+        <div class=" fee-inner">
+          <h2>Fee Information</h2>
+          <div class="row">
+            <%StudentDetail.fee_paids.each do |k, v|%>
+            <% binding.pry %>
+                <% if v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
+                <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a></div>
+              <% else %>
+                <div class="col-sm-3"><a href="#"><%= k %></a></div>
+              <% end%>
+            <% end %>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div><!--end of inner -->
+</div><!-- end of main-wraper -->

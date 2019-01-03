@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
+
   root to: 'home#index' 
   devise_for :users, :skip => [:registrations]
  
-  namespace :superadmin do
-    resources :dashboard
+  resources :super_admin, only: [] do
+    collection do
+      get :dashboard
+    end
   end
 
-  namespace :admin do
-    resources :dashboard
+  resources :admins do
+  	collection do
+  		get :dashboard
+  	end
   end
+  
   resources :students
 end

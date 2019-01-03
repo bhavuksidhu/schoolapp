@@ -1,1 +1,578 @@
-hello student
+<div class="home_page">
+  <div class="col-lg-12 col-xs-12  col-md-12 col-lg-12 ">
+    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12 col-md-offset-1 col-lg-offset-1 col-sm-offset-1">
+      <div class="top-brand" id="home">
+        <div class="img-logo">
+          <%= image_tag 'S00501.jpg',class:"img-responsive" %>
+        </div>
+        <div class="tittle">
+            <h2>
+                LITTLE ROSE MODERN SCHOOL
+            </h2>
+            <p>(Jr. High School, Recognized  & Affiliated To CBSE)</p>
+            <p>C 76, Wazirabad Rd, Chaman Park, Delhi, 110094</p>
+        </div>
+        <!-- <div class="right-logo">
+          <%= image_tag 'logo-right.jpg',class:"img-responsive" %>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- navbar -->
+  <section class="home-nav"> 
+  <nav class="navbar navbar-inverse">
+  <div class="col-md-10 col-lg-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar2">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar2">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="javascript:void(0)">Home</a></li>
+        <li><a href="#about">ABOUT US <span class="arrow-up"></span></a></li>
+       <!--  <li><a href="javascript:void(0)">ADMISSION <span class="arrow-up"></span></a></li> --> 
+       <!--  <li><a href="javascript:void(0)">FACILITIES <span class="arrow-up"></span></a></li> --> 
+       <!--  <li><a href="javascript:void(0)">NEWS & EVENTS <span class="arrow-up"></span></a></li> --> 
+       <!--  <li><a href="javascript:void(0)">CURRICULUM <span class="arrow-up"></span></a></li> --> 
+        <li><a href="#mygallery">GALLERY <span class="arrow-up"></span></a></li> 
+        <li><a href="#contact">CONTACT US <span class="arrow-up"></span></a></li> 
+      </ul>
+    </div>
+  </div>
+  </nav>
+  </section>
+  <!-- ===carousel-images=== -->
+
+  <section class="slider-img">
+
+  <div id="myCarousel" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li class="item1 active"></li>
+      <li class="item2"></li>
+      <li class="item3"></li>
+      <li class="item4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag 'slid-1.jpg',class:"img-responsive" %>
+      </div>
+
+      <div class="item">
+        <%= image_tag 'slid-2.jpg',class:"img-responsive" %>
+      </div>
+    
+      <div class="item">
+        <%= image_tag 'slid-3.jpg',class:"img-responsive" %>
+      </div>
+
+      <div class="item">
+        <%= image_tag 'slid-2.jpg',class:"img-responsive" %>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+  </div>
+
+  <script>
+  $(document).ready(function(){
+      // Activate Carousel
+      $("#myCarousel").carousel({interval: 5000});
+      
+      // Enable Carousel Indicators
+      $(".item1").click(function(){
+          $("#myCarousel").carousel(0);
+      });
+      $(".item2").click(function(){
+          $("#myCarousel").carousel(1);
+      });
+      $(".item3").click(function(){
+          $("#myCarousel").carousel(2);
+      });
+      $(".item4").click(function(){
+          $("#myCarousel").carousel(3);
+      });
+      
+      // Enable Carousel Controls
+      $(".left").click(function(){
+          $("#myCarousel").carousel("prev");
+      });
+      $(".right").click(function(){
+          $("#myCarousel").carousel("next");
+      });
+  });
+  </script>
+  
+</section><!-- end of slider -->
+<section class="runing-text">
+  <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1  bd-bottom">
+    <div>
+    <marquee behavior="scroll" direction="" onmouseover="this.stop();" onmouseout="this.start();">
+     <b> Welcome to Little Rose Modern School</b>
+    </marquee>
+  </div>
+</section>
+
+<section class="text-sec" id="about">
+  <div class="col-lg-7 col-md-7 col-sm-7 col-lg-offset-1 col-md-offset-1 bd-rt">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="green-head">
+          About National Victor Public School
+        </div>
+        <div class="content">
+          <%= image_tag 'school-3.jpg',class:"img-thumbnail img-responsive" %>
+          <p>&nbsp</p>
+          <p>
+            <span>The National Victor Public School, I.P Extension Delhi offers education from Pre-Kindergarten to grade 12, nurturing the child into a well-rounded individual possessing highly developed physical, social and intellectual skills, and winning attitudes. <br>
+            ‘NVPS’ aim is to ensure that all students experience seamless transition of successful learning from their Exploratory Early Years through the challenges of Elementary School, on to the Years of expanding Horizons in High School and the all important De...</span>
+          </p>
+          <!-- <a href="javascript:void(0)">View more...</a> -->
+        </div>
+      </div>
+  </div><!-- col-7 -->
+
+  <div class="col-lg-3 col-md-3 col-sm-5 right-side-cal ">
+    <!----------Calendar ---------->
+    <div style="">
+    <!----------Calendar-------------------->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 my-marginTop10px">
+      <div class="my-head-Green">
+        Calendar
+      </div>
+      <div class="Div_Shadow" style="border-radius: 5px;">
+        <div class="Calendar_Home_Main" style="font-size: 15px;">
+          <!-- <iframe src="https://calendar.google.com/calendar/embed?src=aqib.khan140994%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="100%" height="auto" frameborder="0" scrolling="no"></iframe> -->
+          <center>
+            <script language="javascript" type="text/javascript">
+            var day_of_week = new Array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+            var month_of_year = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+          
+            //  DECLARE AND INITIALIZE VARIABLES
+            var Calendar = new Date();
+          
+            var year = Calendar.getFullYear();     // Returns year
+            var month = Calendar.getMonth();    // Returns month (0-11)
+            var today = Calendar.getDate();    // Returns day (1-31)
+            var weekday = Calendar.getDay();    // Returns day (1-31)
+          
+            var DAYS_OF_WEEK = 7;    // "constant" for number of days in a week
+            var DAYS_OF_MONTH = 31;    // "constant" for number of days in a month
+            var cal;    // Used for printing
+          
+            Calendar.setDate(1);    // Start the calendar day at '1'
+            Calendar.setMonth(month);    // Start the calendar month at now
+          
+          
+            /* VARIABLES FOR FORMATTING
+            NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+                tags to customize your caledanr's look. */
+          
+            var TR_start = '<TR>';
+            var TR_end = '</TR>';
+            var highlight_start = '<TD WIDTH="30"><TABLE CELLSPACING=0 BORDER=1 BGCOLOR=DEDEFF BORDERCOLOR=CCCCCC><TR><TD WIDTH=20><B><CENTER>';
+            var highlight_end   = '</CENTER></TD></TR></TABLE></B>';
+            var TD_start = '<TD WIDTH="30"><CENTER>';
+            var TD_end = '</CENTER></TD>';
+          
+            /* BEGIN CODE FOR CALENDAR
+            NOTE: You can format the 'BORDER', 'BGCOLOR', 'CELLPADDING', 'BORDERCOLOR'
+            tags to customize your calendar's look.*/
+          
+            cal =  '<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=0 BORDERCOLOR=BBBBBB><TR><TD>';
+            cal += '<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=2>' + TR_start;
+            cal += '<TD COLSPAN="' + DAYS_OF_WEEK + '" BGCOLOR="#EFEFEF"><CENTER><B>';
+            cal += month_of_year[month]  + '   ' + year + '</B>' + TD_end + TR_end;
+            cal += TR_start;
+          
+            //   DO NOT EDIT BELOW THIS POINT  //
+          
+            // LOOPS FOR EACH DAY OF WEEK
+            for(index=0; index < DAYS_OF_WEEK; index++)
+            {
+          
+            // BOLD TODAY'S DAY OF WEEK
+            if(weekday == index)
+            cal += TD_start + '<B>' + day_of_week[index] + '</B>' + TD_end;
+          
+            // PRINTS DAY
+            else
+            cal += TD_start + day_of_week[index] + TD_end;
+            }
+          
+            cal += TD_end + TR_end;
+            cal += TR_start;
+          
+            // FILL IN BLANK GAPS UNTIL TODAY'S DAY
+            for(index=0; index < Calendar.getDay(); index++)
+            cal += TD_start + '  ' + TD_end;
+          
+            // LOOPS FOR EACH DAY IN CALENDAR
+            for(index=0; index < DAYS_OF_MONTH; index++)
+            {
+            if( Calendar.getDate() > index )
+            {
+            // RETURNS THE NEXT DAY TO PRINT
+            week_day =Calendar.getDay();
+          
+            // START NEW ROW FOR FIRST DAY OF WEEK
+            if(week_day == 0)
+            cal += TR_start;
+          
+            if(week_day != DAYS_OF_WEEK)
+            {
+          
+            // SET VARIABLE INSIDE LOOP FOR INCREMENTING PURPOSES
+            var day  = Calendar.getDate();
+          
+            // HIGHLIGHT TODAY'S DATE
+            if( today==Calendar.getDate() )
+            cal += highlight_start + day + highlight_end + TD_end;
+          
+            // PRINTS DAY
+            else
+            cal += TD_start + day + TD_end;
+            }
+          
+            // END ROW FOR LAST DAY OF WEEK
+            if(week_day == DAYS_OF_WEEK)
+            cal += TR_end;
+            }
+          
+            // INCREMENTS UNTIL END OF THE MONTH
+            Calendar.setDate(Calendar.getDate()+1);
+          
+            }// end for loop
+          
+            cal += '</TD></TR></TABLE></TABLE>';
+          
+            //  PRINT CALENDAR
+            document.write(cal);
+          
+            //  End
+            </script>
+          </center>
+         
+        </div>
+        
+        <!-- <a href="#" class="my-a">View
+        full calendar...</a> -->
+      </div>
+    </div>
+    </div>
+  </div>
+  </section>
+  <!--image- GALLERY -->
+  <section class="gallery-sce" id="mygallery">
+  <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1 mt-gallery" >
+    <div class="col-sm-12">
+      <div class="my-greenhead">
+        GALLERY
+      </div>
+
+      
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-2.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-2.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-2.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-2.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="gallery-img">
+            <%= image_tag 'img-gallery-3.jpg',class:"img-responsive img-thumbnail" %>
+          </div>
+        </div>
+   
+
+    </div>
+  </div>
+</section>
+
+
+<section class="grey">
+  <div class="well my-marginTop10px">
+    <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1">
+      <!-------Latest Videos && Latest Photos---Facebook Page------------>
+      <div style="margin-top: 10px; margin-bottom: 10px;">
+        <!---------------------Latest Videos--------------->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 " >
+          <div class="my-head-DimGray ">
+            <i class="fab fa-youtube"></i><span>
+            </span>Latest Videos
+          </div>
+          <div class="content2">
+            <marquee direction="up" width="100%" height="200px" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
+              <div>
+                <a href="https://www.youtube.com/embed/PYrgjMubh-c" target="_blank">
+                Fast Math Trick
+                </a> 
+                <iframe src="https://www.youtube.com/embed/PYrgjMubh-c"></iframe>
+              </div>
+            </marquee>
+            <div class="my-border-bottom2px">
+            </div>
+          </div>
+        </div>
+        <!-------------Latest Photos------------------>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+          <div class="my-head-DimGray ">
+            <i class="far fa-image"></i><span>
+            Latest Photos</span>
+          </div>
+          <div class="content2" style="">
+            <div class="mySlides" style="">
+              <div class="slid-inner">
+                <%= image_tag 'school.jpg',class:" img-responsive" %>
+              </div>
+              <div class="cption">
+                <span target="_blank">
+                    SAMEER
+                </span>
+              </div>
+              
+            </div>
+            <div class="mySlides">
+              <div class="slid-inner">
+               <%= image_tag 'img-gallery.jpg',class:" img-responsive" %>
+              </div>
+              <div class="cption">
+                <span target="_blank">
+                    AQIB
+                </span>
+              </div>
+              
+            </div>
+            <div class="mySlides">
+              <div class="slid-inner">
+                <%= image_tag 'img-gallery-2.jpg',class:" img-responsive" %>
+              </div>
+              <div class="cption">
+                <span target="_blank">
+                    MAIN HERO
+                </span>
+              </div>
+            </div>
+            <script>
+              var slideIndex = 0;
+              carousel();
+              
+              function carousel() {
+                  var i;
+                  var x = document.getElementsByClassName("mySlides");
+                  for (i = 0; i < x.length; i++) {
+                      x[i].style.display = "none";
+                  }
+                  slideIndex++;
+                  if (slideIndex > x.length) { slideIndex = 1 }
+                  x[slideIndex - 1].style.display = "block";
+                  setTimeout(carousel, 4000);
+              }
+            </script>
+          </div>
+          <div class="my-border-bottom2px" style=""></div>
+          <div>
+          </div>
+        </div>
+        <!-----------Facebook Page------------->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" >
+          <div class="my-head-DimGray ">
+            <i class="fab fa-facebook-square"></i><span>
+            Facebook Page</span>
+          </div>
+            
+            <!------------------------->
+            <div class="fb-page">
+                <a href="javascript:void(0)">
+                  <%= image_tag 'fb.jpg',class:"img-responsive" %>
+                </a>
+            </div>
+          <div class="my-border-bottom2px"></div>
+          <div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="black" id="contact">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-lg-offset-1 col-md-offset-1 ">
+                <div class="myrow ">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12" >
+                            <div class="div">
+                                <a href="#home">Home</a>
+                            </div>
+                            
+                            <div class="div">
+                                <a href="#about">About Us</a>
+                            </div>
+                            
+                            <div class="div">
+                                <a href="#mygallery">Gallery</a>
+                            </div>
+                            <div class="div">
+                                <a href="#contact">Contact Us</a>
+                            </div>
+                            
+                            
+                            
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 scend">
+                        <div class="iner">
+                            
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13996.403486130976!2d77.2783628!3d28.7165313!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x2422e518c5e53f4!2sLittle+Rose+Modern+Public+School!5e0!3m2!1sen!2sin!4v1545648255341" width="600" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <p>Little Rose Modern School C 76, Wazirabad Rd, Chaman Park, Delhi, 110094 Email:nationalvictor@yahoo.com Phone No : 09312247319</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 ">
+                        <div class="right-sd">
+                            <h4>
+                                Follow us on</h4>
+                            <ul class="social-icons">
+                                
+                                <li><a href="javascript:void(0)" class="fb"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li><a href="javascript:void(0)" class="twt"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li><a href="javascript:void(0)" class="you"><i class="fab fa-youtube"></i></a>
+                                </li>
+                                <li><a href="javascript:void(0)" class="gplus"><i class="fab fa-google-plus-g"></i>
+                                </a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+        
+    
+  <section class="footer">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+      <table class="table-responsive f-taable">
+          <tbody>
+            <tr>
+              <td>
+                  <div class="data" style="color: #fff; font-size: 15px;font-weight: 500;">
+                      <span>Made with <i style="color: #fe2200de; font-size: 15px;" class="fa fa-heart"></i> by</span><br>
+                      <div class="inner-data" style=""> 
+                        <a style="" href="http://www.adwaretech.com/" target="_blank">
+                          Adware Technologies
+                        </a>
+                      </div>
+                  </div>
+              </td>
+              <td rowspan="2">
+                  <!----logo------------>
+                  <div class="data-2" style="">
+                      
+                    <a style="" href="http://www.adwaretech.com/" target="_blank">  
+                      <div class="Eduorbit_logo"> 
+                         <%= image_tag 'my.png' , class: "img-responsive" %> 
+                      </div>
+                    </a>
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- <div class="left-side-icons">
+  <a href="#" class="fb"><i class="fab fa-facebook-f"></i> <span class="fb-text">Facebook</span></a>
+  <a href="#" class="twt"><i class="fab fa-twitter"></i><span class="t-text">Twitter</span></a>
+  <a href="#" class="g-plus"><i class="fab fa-google-plus-g"></i><span class="g-text">Google+</span></a>
+  <a href="#" class="in"><i class="fab fa-linkedin-in"></i><span class="in-text">Linkedin</span></a>
+</div> -->
+
+</div><!-- main-page -->
+
+
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 600, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+
+

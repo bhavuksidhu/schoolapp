@@ -12,7 +12,11 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.validate
 //= require rails-ujs
+//= require cocoon
 //= require bootstrap.min
+//= require toastr_rails
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-datepicker
