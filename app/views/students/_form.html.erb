@@ -32,6 +32,11 @@
       <label for="email">Standard*</label>
       <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
     </div>
+
+    <div class="form-group">
+      <label for="email">Fee Paid*</label>
+      <%= s_detail.select :fee_paid, options_for_select(StudentDetail.fee_paids.map {|k, v| [k.humanize.capitalize, v]})%>
+    </div>
   <%end%>
   <div id="student_attachments" class="attachment">
     <%= f.fields_for :student_attachments do |st_attachment|  %>

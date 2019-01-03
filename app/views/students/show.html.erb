@@ -48,8 +48,16 @@
               <h3>Standard : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
               <h3>Date Of Birth : <span><%= @student.student_detail.try(:dob) %></span></h3>
               <h3>Date Of Admission : <span>1st April 2016</span></h3>
+              <h3>Session
+                <span>
+                  <% if Date.today.month < 4 %>
+                    <%= "#{Date.today.year - 1} - #{Date.today.year}" %>
+                  <% else %>
+                    <%= "#{Date.today.year} - #{Date.today.year + 1}" %>
+                  <% end %>
+                </span></h3>
               <h3>
-                Current Session : 
+                Aadhaar Card : 
                 <span>
                 <% if @student.student_attachments.present? %>
                 <% @student.student_attachments.each do |st_attachment|%>
@@ -67,18 +75,14 @@
         <div class=" fee-inner">
           <h2>Fee Information</h2>
           <div class="row">
-            <div class="col-sm-3"><a href="#">January</a></div>
-            <div class="col-sm-3"><a href="#">February</a></div>
-            <div class="col-sm-3"><a href="#">March</a></div>
-            <div class="col-sm-3"><a href="#">April</a></div>
-            <div class="col-sm-3"><a href="#">May</a></div>
-            <div class="col-sm-3"><a href="#">June</a></div>
-            <div class="col-sm-3"><a href="#">July</a></div>
-            <div class="col-sm-3"><a href="#">August</a></div>
-            <div class="col-sm-3"><a href="#">September</a></div>
-            <div class="col-sm-3"><a href="#">October</a></div>
-            <div class="col-sm-3"><a href="#">November</a></div>
-            <div class="col-sm-3"><a href="#">December</a></div>
+            <%StudentDetail.fee_paids.each do |k, v|%>
+            <% binding.pry %>
+                <% if v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
+                <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a></div>
+              <% else %>
+                <div class="col-sm-3"><a href="#"><%= k %></a></div>
+              <% end%>
+            <% end %>
           </div>
         </div>
       </section>
