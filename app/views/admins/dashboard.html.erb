@@ -61,7 +61,7 @@
               <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->
               <td><%= link_to "View details", student_path(student) %></td>
               <td>
-                <%= link_to  do%>
+                <%= link_to edit_student_path(student)  do%>
                   Edit
                 <% end %>
                 <span>/</span>
