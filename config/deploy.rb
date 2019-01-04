@@ -3,7 +3,10 @@ lock "~> 3.11.0"
 
 set :application, "school_app"
 set :repo_url, "git@example.com:me/my_repo.git"
-
+set :deploy_to, '/var/www/my-app-name'
+set :use_sudo, true
+set :branch, 'master'
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
