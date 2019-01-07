@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   extend FriendlyId
-  friendly_id :first_name, use: :slugged
+  friendly_id :full_name, use: :slugged
 
   ROLE = %w(SuperAdmin Admin Student)
 

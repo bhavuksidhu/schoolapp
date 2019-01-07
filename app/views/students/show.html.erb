@@ -1,4 +1,4 @@
-<% content_for :title, "#{@student.name.capitalize} - #{@student.student_detail.try(:standard).try(:title)} Class" %>
+<% content_for :title, "#{@student.full_name.capitalize} - #{@student.student_detail.try(:standard).try(:title)} Class" %>
 <div class="main-wraper">
   <div class="inner">
     <div class="colr">
@@ -39,8 +39,7 @@
           <div class="col-sm-7">
             <div class="studt-name">
               <h2>
-                <%= @student.first_name %>
-                <%= @student.last_name %>              
+                <%= @student.full_name %>             
               </h2>
               <h3>Father Name : <span><%= @student.student_detail.try(:father_name) %></span></h3>
               <h3>Class : <span><%= @student.student_detail.try(:standard).try(:title) %></span></h3>
@@ -82,13 +81,14 @@
               <% end%>
             <% end %>
           </div>
-          <%=link_to "Update fee information", edit_student_path, class: "fee-info-btn"%>
+          <%=link_to "Update Student Information", edit_student_path, class: "fee-info-btn"%>
         </div>
       </section>
     </div>
   </div>
 </div><!--end of inner -->
 </div><!-- end of main-wraper -->
+
 
 
 <script>

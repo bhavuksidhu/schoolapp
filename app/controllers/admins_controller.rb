@@ -6,8 +6,8 @@ class AdminsController < ApplicationController
 
 
   def dashboard
-    @search = Student.search(params[:q])
-    @students = @search.result 
+    @search = Student.ransack(params[:q])
+    @students = @search.result
   end
 
   def new
@@ -57,7 +57,7 @@ class AdminsController < ApplicationController
     end    
 
     def admin_params
-      params.require(:admin).permit(:first_name, :last_name, :email, :password)
+      params.require(:admin).permit(:full_name,  :email, :password)
     end
 
     def get_admin

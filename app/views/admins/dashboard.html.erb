@@ -20,10 +20,10 @@
  <div class="col-sm-9">
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-      <%= search_form_for @search do |f| %>
+      <%= search_form_for @search, url: dashboard_admins_path do |f| %>
         <div class="field form-group">
-          <%= f.label :first_name_start, "Search Students" %>
-          <%= f.text_field :first_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
+          <%= f.label :full_name_start, "Search Students" %>
+          <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
           <div class="actions">
             <%= f.submit "Search" %>
           </div>
@@ -31,7 +31,7 @@
       <% end %>
       <table class="btn_table">
         <tr>
-          <th><%= sort_link(@search, :first_name) %></th>
+          <th><%= sort_link(@search, :full_name) %></th>
           <th><%= sort_link(@search, :admission_date  ) %></th>
         </tr>
       </table>
@@ -54,7 +54,7 @@
           <tbody>
             <% @students.each do |student| %>
             <tr>
-              <td><%= student.name %></td>
+              <td><%= student.full_name %></td>
               <td><%= student.student_detail.try(:father_name) %></td>
               <td><%= student.student_detail.try(:standard).try(:title) %></td>
               <td><%= student.student_detail.try(:dob) %></td>

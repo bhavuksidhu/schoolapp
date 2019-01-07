@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
     params[:page] ||= 1
     @search = Student.search(params[:q])
     @students = @search.result.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
+
   end
 
   def new
@@ -17,10 +18,10 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    @student.email = @student.first_name + Time.now.strftime("%Y%m%d%H%M%S") + "@email.com"
+    @student.email = Time.now.strftime("%Y%m%d%H%M%S") + "@email.com"
     if @student.save
       flash[:success] = "Student saved successfully!"
-      redirect_to students_path
+      redirect_to dashboard_admins_path
     else
       flash[:error] = "Something went wrong, please try later!"
       render :new
@@ -53,7 +54,7 @@ private
 
   def student_params
     params[:student][:student_detail_attributes][:fee_paid] = params[:student][:student_detail_attributes][:fee_paid].to_i
-    params.require(:student).permit(:first_name, :last_name, :password,
+    params.require(:student).permit(:full_name, :password,
                                       student_detail_attributes: [:id, :dob, :father_name,  :admission_date, :standard_id, :fee_paid, :_destroy],
                                       student_attachments_attributes: [:id, :attachment, :_destroy])
   end

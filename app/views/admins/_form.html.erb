@@ -5,15 +5,11 @@
         <%= form_for(@admin) do |f| %>
 
           <div class="form-group">
-            <label for="First Name">First Name*</label>
-            <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" , placeholder:"First Name" , class: "form-control" %>
+            <label for="Full Name">Full Name*</label>
+            <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name" , placeholder:"Full Name" , class: "form-control" %>
           </div>
 
-          <div class="form-group">
-            <label for="Last Name">Last Name*</label>
-            <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" , placeholder:"Last Name" , class: "form-control" %>
-          </div>
-
+        
           <div class="form-group">
             <label for="email">Email*</label>
             <%= f.email_field :email, autofocus: true, autocomplete: "email" , placeholder:"Email" , class: "form-control" %>
@@ -47,15 +43,13 @@
 <script type="text/javascript">
   $("#new_admin").validate({
       rules: {
-        "admin[first_name]": {required: true},
-        "admin[last_name]": {required: true},
+        "admin[full_name]": {required: true},
         "admin[email]": {required: true, email: true},
         "admin[password]": {required: true, minlength: 6},
         "admin[password_confirmation]": {equalTo: "#admin_password", minlength: 6}
       },
       messages: {
-        "admin[first_name]": {required: "Please enter your firstname"},
-        "admin[last_name]": {required: "Please enter your last_name"},
+        "admin[full_name]": {required: "Please enter your fullname"},
         "admin[email]": {required: "Please provide a email"},
         "admin[password]": {required: "Please enter a valid password"},
         "admin[password_confirmation]": {required: "Please enter correct password"}

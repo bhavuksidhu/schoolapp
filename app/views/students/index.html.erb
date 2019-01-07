@@ -3,10 +3,10 @@
 	<div class="inner">
 		 <%= search_form_for @search do |f| %>
         <div class="field form-group">
-          <%= f.label :first_name_start, "Search Students" %>
-          <%= f.text_field :first_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
+          <%= f.label :full_name_start   , "Search Students" %>
+          <%= f.search_field :full_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
           <div class="actions">
-            <%= f.submit "Search" %>
+            <%= f.submit "Search"  %>
           </div>
         </div>
       <% end %>
@@ -25,7 +25,7 @@
             <%= will_paginate @students %>
 			    	<% @students.each do |student| %>
 				      <tr>
-				        <td><%= student.name %></td>
+				        <td><%= student.full_name %></td>
 				        <td><%= student.student_detail.try(:standard).try(:title) %></td>
 				        <td><%= student.student_detail.try(:admission_date) %></td>
 				        <td><%=link_to 'View details', student_path(student.id)%>  </td>
