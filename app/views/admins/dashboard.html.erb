@@ -10,9 +10,9 @@
           <li class="active"><a data-toggle="tab" href="#home">Manage Students</a></li>
           <li><a data-toggle="tab" href="#menu1">Manage Admins</a></li>
           <li><a data-toggle="tab" href="#menu2">Fee Management</a></li>
-          <li><a data-toggle="tab" href="#menu3">View Homepage</a></li>
+          <li><%=link_to 'View Homepage', root_path, target: "_blank"%> </li>
           <li><a data-toggle="tab" href="#menu3">Settings</a></li>
-          <li><a data-toggle="tab" href="#menu3">Log Out</a></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
         </ul>
       </div>
     </div>
@@ -73,23 +73,118 @@
             <% end %>
           </tbody>
         </table>
+      <div class="studentcontainer">
+        <div class="panel panel-default">
+          <div class="panel-heading">Total <%= @students.count%> students</div>
+          <div class="panel-body">
+            <div class="table-responsive stu_table">           
+              <table class="table table-hover">
+                <thead>
+                  <tr class="bord">
+                    <th>Full Name</th>
+                    <th>Father Name</th>
+                    <th>Class</th>
+                    <th>Date Of Birth</th>
+                    <!-- <th>Date Of Admission</th> -->
+                    <th>View</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @students.each do |student| %>
+                  <tr>
+                    <td><%= student.name %></td>
+                    <td><%= student.student_detail.try(:father_name) %></td>
+                    <td><%= student.student_detail.try(:standard).try(:title) %></td>
+                    <td><%= student.student_detail.try(:dob) %></td>
+                    <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->
+                    <td><%= link_to "View details", student_path(student) %></td>
+                    <td>
+                      <%= link_to edit_student_path(student)  do%>
+                        Edit
+                      <% end %>
+                      <span>/</span>
+                      <%= link_to  do%>
+                        Delete
+                      <% end %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
-
 
 
     <div id="menu1" class="tab-pane fade">
-      <h3>Menu 1</h3>
-      <p>blank</p>
+      <div class="admincontainer">
+        <div class="panel panel-default">
+          <div class="panel-heading">Manage Admins</div>
+          <div class="panel-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="menu2" class="tab-pane fade">
-      <h3>Menu 2</h3>
-      <p>blank</p>
+      <h3>Not Available</h3>
+      <p>There's no fee data present of any student yet</p>
     </div>
     <div id="menu3" class="tab-pane fade">
-      <h3>Menu 3</h3>
-      <p>blank-3</p>
+      <div class="password">
+        <div class="panel panel-default">
+          <div class="panel-heading">Change your admin password</div>
+          <div class="panel-body">
+            <div class="col-sm-4">
+              <form>
+                <label>Current Password</label>
+                <div class="form-group pass_show"> 
+                  <input type="password"  class="form-control" placeholder="Current Password"> 
+                </div> 
+                <label>New Password</label>
+                <div class="form-group pass_show"> 
+                  <input type="password"  class="form-control" placeholder="New Password"> 
+                </div> 
+                <label>Confirm Password</label>
+                <div class="form-group pass_show"> 
+                  <input type="password"  class="form-control" placeholder="Confirm Password"> 
+                </div>
+                <div class="form-group pass_show">
+                  <button class="btn btn-primary " type="submit">Submit</button>
+                </div>
+              </form>     
+            </div>  
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
