@@ -35,44 +35,8 @@
           <th><%= sort_link(@search, :admission_date  ) %></th>
         </tr>
       </table>
-      <%=link_to "Add a student", new_student_path, class: "new-student-path" %>
-      <p class="student-counter">Total <%= @students.count%> students </p>
-      <div class="table-responsive stu_table">           
-        <table class="table table-hover">
-          <thead>
-            <tr class="bord">
-              
-              <th>Full Name</th>
-              <th>Father Name</th>
-              <th>Class</th>
-              <th>Date Of Birth</th>
-              <!-- <th>Date Of Admission</th> -->
-              <th>View</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @students.each do |student| %>
-            <tr>
-              <td><%= student.full_name %></td>
-              <td><%= student.student_detail.try(:father_name) %></td>
-              <td><%= student.student_detail.try(:standard).try(:title) %></td>
-              <td><%= student.student_detail.try(:dob) %></td>
-              <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->
-              <td><%= link_to "View details", student_path(student) %></td>
-              <td>
-                <%= link_to edit_student_path(student)  do%>
-                  Edit
-                <% end %>
-                <span>/</span>
-                <%= link_to  do%>
-                  Delete
-                <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+     
+       <%=link_to "Add a student", new_student_path, class: "new-student-path" %>
       <div class="studentcontainer">
         <div class="panel panel-default">
           <div class="panel-heading">Total <%= @students.count%> students</div>
@@ -93,7 +57,7 @@
                 <tbody>
                   <% @students.each do |student| %>
                   <tr>
-                    <td><%= student.name %></td>
+                    <td><%= student.full_name %></td>
                     <td><%= student.student_detail.try(:father_name) %></td>
                     <td><%= student.student_detail.try(:standard).try(:title) %></td>
                     <td><%= student.student_detail.try(:dob) %></td>
@@ -127,26 +91,16 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
+                  <th>Admin Name</th>
+                  <th>Create date</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                </tr>
-                <tr>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                </tr>
-                <tr>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@example.com</td>
+                  <td>John Doe</td>
+                  <td>12/10/2018</td>
+                  <td><%=link_to "Remove", root_path%></td>
                 </tr>
               </tbody>
             </table>
