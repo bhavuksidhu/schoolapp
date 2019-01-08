@@ -34,10 +34,14 @@ class StudentsController < ApplicationController
   def edit
   end
 
+  def destroy
+    @student.destroy()
+  end
+
   def update
     if @student.update(student_params)
       flash[:success] = "Student updated successfully!"
-      redirect_to students_path
+      redirect_to dashboard_admins_path
     else
       flash[:error] = "Something went wrong!"
       render :edit

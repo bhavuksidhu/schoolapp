@@ -41,6 +41,7 @@
     }
   }
 
+
   a.new-student-path {
     float: right;
     display: block;
@@ -53,6 +54,11 @@
     background: #4e94fc;
     color: #fff;
     text-decoration: none;
+
+    &.mew-admin-path {
+      margin-top: 4px;
+      
+    }
 
     &:hover {
       background: #589bff;

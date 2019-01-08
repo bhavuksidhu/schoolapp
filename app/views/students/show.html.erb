@@ -73,13 +73,14 @@
           </p>
           <div class="row">
             <%StudentDetail.fee_paids.each do |k, v|%>
-                <% if v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
-                <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a>
-                  <%=image_tag 'paid-stamp.png', class: "paid-stamp" %>
-                </div>
-              <% else %>
-                <div class="col-sm-3"><a href="#"><%= k %></a></div>
-              <% end%>
+              <% next if v == 0 %>
+                <% if @student.student_detail.fee_paid != 0 && v <= StudentDetail.fee_paids[@student.student_detail.fee_paid] %>
+                  <div class="col-sm-3"><a href="#" class="mya" ><%= k %></a>
+                    <%=image_tag 'paid-stamp.png', class: "paid-stamp" %>
+                  </div>
+                <% else %>
+                  <div class="col-sm-3"><a href="#"><%= k %></a></div>
+                <% end%>
             <% end %>
           </div>
           <%=link_to "Update Student Information", edit_student_path, class: "fee-info-btn"%>

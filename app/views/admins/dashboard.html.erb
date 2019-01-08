@@ -68,9 +68,10 @@
                         Edit
                       <% end %>
                       <span>/</span>
-                      <%= link_to  do%>
-                        Delete
-                      <% end %>
+                      <%= link_to "Delete", student_path(student) , method: :delete,
+               data: { confirm: 'Are you sure?' }  %>
+                        
+                      
                     </td>
                   </tr>
                   <% end %>
@@ -85,23 +86,26 @@
 
     <div id="menu1" class="tab-pane fade">
       <div class="admincontainer">
+        <%=link_to "Assign an admin", new_admin_path, class: "new-student-path mew-admin-path" %>
         <div class="panel panel-default">
           <div class="panel-heading">Manage Admins</div>
           <div class="panel-body">
             <table class="table">
               <thead>
                 <tr>
-                  <th>Admin Name</th>
+                   <th>Admin Name</th>
                   <th>Create date</th>
                   <th>Action</th>
                 </tr>
+                <% @admins.each do|admin| %>
+                  <tr>
+                    <td><%= admin.full_name %></td>
+                    <td><%= admin.created_at.strftime("%d-%m-%Y") %></td>
+                    <td><%= link_to "Remove",admin_path(admin), method: :delete,
+                data: { confirm: 'Are you sure?' } %><td></tr>
+                <% end %>
               </thead>
               <tbody>
-                <tr>
-                  <td>John Doe</td>
-                  <td>12/10/2018</td>
-                  <td><%=link_to "Remove", root_path%></td>
-                </tr>
               </tbody>
             </table>
           </div>
