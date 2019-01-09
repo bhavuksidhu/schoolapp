@@ -8,6 +8,7 @@ class AdminsController < ApplicationController
   def dashboard
     @search = Student.ransack(params[:q])
     @students = @search.result
+    @admin = Admin.new
     @admins = Admin.all
   end
 
@@ -35,6 +36,7 @@ class AdminsController < ApplicationController
     else
       render 'edit'
     end
+    
   end
 
   def destroy
@@ -50,4 +52,4 @@ class AdminsController < ApplicationController
     def get_admin
       @admin = Admin.friendly.find(params[:id])
     end     
-end
+  end

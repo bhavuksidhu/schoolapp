@@ -67,3 +67,5 @@ gem 'ransack'
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate'
 
+
+

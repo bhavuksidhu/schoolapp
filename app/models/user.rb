@@ -16,4 +16,6 @@ class User < ApplicationRecord
      type == method
    end
  end
+
+
 end

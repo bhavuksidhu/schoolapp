@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   end
   
   resources :students
+
+  resource :users, only: [:edit, :update]  
 end
