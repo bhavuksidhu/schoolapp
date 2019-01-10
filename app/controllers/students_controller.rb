@@ -41,7 +41,7 @@ class StudentsController < ApplicationController
   def update
     if @student.update(student_params)
       flash[:success] = "Student updated successfully!"
-      redirect_to dashboard_admins_path
+      redirect_to student_path
     else
       flash[:error] = "Something went wrong!"
       render :edit
