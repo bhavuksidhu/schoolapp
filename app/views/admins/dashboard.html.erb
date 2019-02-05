@@ -23,7 +23,10 @@
       <%= search_form_for @search, url: dashboard_admins_path do |f| %>
         <div class="field form-group">
           <%= f.label :full_name_start, "Search Students" %>
-          <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..." %>
+          
+          <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..."%>
+
+          <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq) %>
           <div class="actions">
             <%= f.submit "Search" %>
           </div>
@@ -33,6 +36,8 @@
         <tr>
           <th><%= sort_link(@search, :full_name) %></th>
           <th><%= sort_link(@search, :admission_date  ) %></th>
+        
+        </th>
         </tr>
       </table>
      
@@ -61,6 +66,8 @@
                     <td><%= student.student_detail.try(:father_name) %></td>
                     <td><%= student.student_detail.try(:standard).try(:title) %></td>
                     <td><%= student.student_detail.try(:dob) %></td>
+
+                   </div>
                     <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->
                     <td><%= link_to "View details", student_path(student) %></td>
                     <td>
@@ -132,3 +139,10 @@
  </div>
 </div>
   
+<script>
+  $(document).ready(function(){
+  $("#q_student_detail_standard_id_eq").change(function(){
+  this.form.submit();
+    });
+  });
+</script>

@@ -53,7 +53,9 @@
                     <%= "#{Date.today.year} - #{Date.today.year + 1}" %>
                   <% end %>
                 </span></h3>
-              <p><%= @student.student_detail.try(:about)%></p>
+                <h3>about:</h3><span><p><%= @student.student_detail.try(:about)%></p></span>
+              <h3>section:</h3><span>
+              <p><%= @student.student_detail.try(:section)%></p></span>
             </div>
           </div>
         </div>
