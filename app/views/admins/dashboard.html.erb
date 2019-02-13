@@ -26,7 +26,7 @@
           
           <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..."%>
 
-          <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq) %>
+          <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq), {include_blank: "--All--"} %>
           <div class="actions">
             <%= f.submit "Search" %>
           </div>
