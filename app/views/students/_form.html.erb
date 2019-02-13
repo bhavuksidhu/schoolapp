@@ -28,6 +28,16 @@
       <label for="class">Class*</label>
       <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
     </div>
+      <div class="form-group">
+      <label for="email">Section*</label>
+      <%= s_detail.text_field :section , class: "form-control sm" %>
+    </div>
+      <div class="form-group">
+      <label for="email">About*</label>
+      <%= s_detail.text_area :about , class: "form-control sm" %>
+    </div>
+
+
 
     <div class="form-group">
       <label for="fee">Fee Paid Upto</label>

@@ -7,10 +7,10 @@ class AdminsController < ApplicationController
 
   def dashboard
     @search = Student.ransack(params[:q])
-    @students = @search.result
-    @admin = Admin.new
+    @students = @search.result.includes(:student_detail)
     @admins = Admin.all
-  end
+    @admin = Admin.new
+end
 
   def new
     @admin = Admin.new
