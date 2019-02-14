@@ -273,10 +273,12 @@ img.paid-stamp {
             border: 1px solid #dddddd;
             a{
               color: #595959;
-              padding: 5px 7px;
+              padding: 8px 15px;
               text-decoration: none;
               font-size: 13px;
               display: block;
+              box-shadow: 0 1px 6px rgba(57,73,76,0.35);
+              -webkit-box-shadow: 0 1px 6px rgba(57,73,76,0.35);
               &:hover{
                 background: #ddd;
                 color: #000;
@@ -591,5 +593,34 @@ label.error{
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
   background-color: #fff !important;
   color: #637fcf !important;
+}
+
+.Date_Rescheduled_Appointment_moved_to_5_6 {
+  font-size: 38px;
+  font-family: "Myriad Hebrew";
+  color: rgb(255, 255, 255);
+  line-height: 1.336;
+  text-align: left;
+  position: absolute;
+  left: 266.938px;
+  top: 1832.881px;
+  width: 433px;
+  height: 86px;
+  z-index: 12;
+}
+
+.student-classification {
+  text-align: left;
+
+  select {
+    width: 160px;
+    height: 35px;
+    margin-top: 20px;
+    background: #fff;
+    border: 1px solid #dddddd;
+    box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
+    -webkit-box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
+    -webkit-border-radius: 0px;
+  }
 }
 
