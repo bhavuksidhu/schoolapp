@@ -26,7 +26,7 @@
 
     <div class="form-group">
       <label for="class">Class*</label>
-      <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id))%>
+      <%= s_detail.select :standard_id, options_for_select(Standard.pluck(:title, :id), s_detail.object.standard_id)%>
     </div>
       <div class="form-group">
       <label for="email">Section*</label>
@@ -41,7 +41,7 @@
 
     <div class="form-group">
       <label for="fee">Fee Paid Upto</label>
-      <%= s_detail.select :fee_paid, options_for_select(StudentDetail.fee_paids.map {|k, v| [k.humanize.capitalize, v]} )%>
+      <%= s_detail.select :fee_paid, options_for_select(StudentDetail.fee_paids.map {|k, v| [k.humanize.capitalize, v]}, StudentDetail.fee_paids[s_detail.object.fee_paid])%>
     </div>
   <%end%>
   <div id="student_attachments" class="attachment">

@@ -41,7 +41,6 @@
     }
   }
 
-
   a.new-student-path {
     float: right;
     display: block;
@@ -169,6 +168,11 @@ img.paid-stamp {
           span{
             margin-left:8px;
             font-weight: normal;
+          }
+
+          .section-label, .section-output {     
+            position: relative;
+            left: 10px;
           }
         }
       }
