@@ -26,7 +26,7 @@
           
           <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..."%>
 
-          <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq), {include_blank: "--All--"} %>
+          <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq),{include_blank: "--All--"} %>
           <div class="actions">
             <%= f.submit "Search" %>
           </div>
@@ -55,6 +55,7 @@
                     <th>Class</th>
                     <th>Date Of Birth</th>
                     <!-- <th>Date Of Admission</th> -->
+                    <th>Admission Number</th>
                     <th>View</th>
                     <th>Action</th>
                   </tr>
@@ -66,6 +67,7 @@
                     <td><%= student.student_detail.try(:father_name) %></td>
                     <td><%= student.student_detail.try(:standard).try(:title) %></td>
                     <td><%= student.student_detail.try(:dob) %></td>
+                    <td><%= student.student_detail.try(:admission_number) %></td>
 
                    </div>
                     <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->
