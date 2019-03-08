@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190204054248) do
+ActiveRecord::Schema.define(version: 20190307100229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20190204054248) do
     t.integer "fee_paid"
     t.text "about"
     t.string "section"
+    t.string "admission_number"
     t.index ["standard_id"], name: "index_student_details_on_standard_id"
   end
 

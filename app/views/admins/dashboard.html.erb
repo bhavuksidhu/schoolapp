@@ -16,7 +16,6 @@
         </ul>
       </div>
     </div>
-  
  <div class="col-sm-9">
   <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
@@ -26,7 +25,7 @@
           
           <%= f.search_field  :full_name_start , class: 'form-control cstm' , placeholder:"Search..."%>
           <div class="student-classification student-classification-select">
-            <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq), class: 'choose-classification' %>
+            <%= f.select :student_detail_standard_id_eq, options_for_select(Standard.pluck(:title, :id), @search.student_detail_standard_id_eq), {include_blank: "All Classes"}, class: 'choose-classification' %>
           </div>
           <div class="actions">
             <%= f.submit "Search" %>
@@ -55,6 +54,7 @@
                     <th>Class</th>
                     <th>Date Of Birth</th>
                     <!-- <th>Date Of Admission</th> -->
+                    <th>Admission Number</th>
                     <th>View</th>
                     <th>Action</th>
                   </tr>
@@ -66,6 +66,7 @@
                     <td><%= student.student_detail.try(:father_name) %></td>
                     <td><%= student.student_detail.try(:standard).try(:title) %></td>
                     <td><%= student.student_detail.try(:dob) %></td>
+                    <td><%= student.student_detail.try(:admission_number) %></td>
 
                    </div>
                     <!-- <td><%#= student.student_detail.try(:admission_date) %></td> -->

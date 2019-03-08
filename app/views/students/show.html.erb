@@ -42,6 +42,7 @@
                 <%= @student.full_name %>             
               </h2>
               <h3>Father Name : <span><%= @student.student_detail.try(:father_name) %></span></h3>
+              <h3>Admisson no. : <span><%= @student.student_detail.try(:admission_number) %></span></h3>
               <h3>Class : <span><%= @student.student_detail.try(:standard).try(:title) %>,</span>
                 <strong class="section-label">Section: </strong><span class="section-output"> <%= @student.student_detail.try(:section)%></span>
               </h3>
