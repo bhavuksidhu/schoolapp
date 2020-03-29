@@ -66,6 +66,6 @@ gem 'jquery-validation-rails'
 gem 'ransack'
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate'
-
+gem 'bootstrap', '~> 4.0'
 
 

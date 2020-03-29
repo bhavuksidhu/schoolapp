@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20190307100229) do
   create_table "student_details", force: :cascade do |t|
     t.date "dob"
     t.string "father_name"
-    t.string "uid_pic"
     t.date "admission_date"
     t.bigint "standard_id"
     t.datetime "created_at", null: false
